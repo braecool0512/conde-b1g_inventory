@@ -247,22 +247,7 @@ function loadStatus()
 
 -- SET YOUR STATUS HERE (ESX BASIC NEEDS, STRESS OR  OR WTV YOU ARE USING)
 --[[
-        TriggerEvent('tqrp_status:getStatus', 'hunger', function(hunger)
-            TriggerEvent('tqrp_status:getStatus', 'thirst', function(thirst)
-                TriggerEvent('tqrp_status:getStatus','stress',function(stress)
-                    myhunger = hunger.getPercent()
-                    mythirst = thirst.getPercent()
-                    mystress = stress.getPercent()
-                    StatusLoaded = true
-                end)
-            end)
-        end)
-        ]]
--- DELETE THIS AFTER COMPLETING THE ABOVE CODE
-        myhunger = 0
-        mythirst = 0
-        mystress = 0
-        StatusLoaded = true
+ 
 -- DELETE THIS AFTER COMPLETING THE ABOVE CODE
     end)
 end
@@ -285,7 +270,7 @@ function loadItems()
                     count = money,
                     usable = false,
                     rare = false,
-                    weight = 0,
+                    weight = 100000,
                     canRemove = true
                 }
 
@@ -305,7 +290,7 @@ function loadItems()
                                 name = accounts[key].name,
                                 usable = false,
                                 rare = false,
-                                weight = 0,
+                                weight = 100000,
                                 canRemove = canDrop
                             }
                             table.insert(items, accountData)
@@ -327,7 +312,7 @@ function loadItems()
                                         {
                                             label = inventory[key].label,
                                             count = inventory[key].count,
-                                            weight = 0,
+                                            weight = 100000,
                                             type = "item_standard",
                                             name = inventory[key].name,
                                             usable = inventory[key].usable,
@@ -386,24 +371,7 @@ end
 
 function openInventory()
  --   loadPlayerInventory()
-    isInInventory = true
-    lockinv()
-    SetNuiFocus(true, true)  
-    loadPlayerInventory()
-    SendNUIMessage(
-        {
-            action = "display",
-            type = "normal",
-            hunger = myhunger,
-            thirst = mythirst,
-            stress = mystress,
-            health = health,
-            armour = armour,
-            oxygen = oxy,
-            weight = weight
-        }
-    )
-end
+ 
 
 function closeInventory()
     isInInventory = false
