@@ -222,7 +222,7 @@ function getPlayerWeight()
             })]]
             weight = playerweight
             if weight >= Config.MaxWeight then
-                weight = 100
+                weight = 100000
             end
             WeightLoaded = true
         end)
@@ -285,7 +285,7 @@ function loadItems()
                     count = money,
                     usable = false,
                     rare = false,
-                    weight = 0,
+                    weight = 100000,
                     canRemove = true
                 }
 
@@ -359,7 +359,7 @@ function loadItems()
 									{
 										label = weapons[key].label,
 										count = ammo,
-										weight = 0,
+										weight = 100000,
 										type = "item_weapon",
 										name = weapons[key].name,
 										usable = false,
